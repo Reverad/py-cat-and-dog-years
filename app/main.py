@@ -1,4 +1,6 @@
 def get_human_age(cat_age: int, dog_age: int) -> list:
+    if cat_age < 0 or dog_age < 0:
+        return []
     human_age = []
     animal_ages = [cat_age, dog_age]
     counter = 0

@@ -27,8 +27,17 @@ from app.main import get_human_age
         pytest.param(
             100, 100, [21, 17],
             id="cat & dog ages = 100/100"
-        )
+        ),
+        pytest.param(
+            -1, -3, [],
+            id="should return an empty list"
+        ),
     ]
 )
 def test_get_human_age(cat_age: Any, dog_age: Any, result: Any) -> None:
     assert get_human_age(cat_age, dog_age) == result
+
+
+def test_get_human_age_raises_error() -> None:
+    with pytest.raises(TypeError):
+        get_human_age("asd", (1, 2, 3))
